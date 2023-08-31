@@ -8,6 +8,7 @@ public class Garage {
   public int capacity;
   public List<Car> cars = new ArrayList<>();
   private int fees = 0;
+  private List<Car> members = new ArrayList<>(); // List to store associated members
 
   public Garage( int size ) {
     this.capacity = size;
@@ -45,11 +46,19 @@ public class Garage {
   }
 
   public int getFee( Car car ) {
-    return 10;
+    if (members.contains(car)) {
+      return 5; // If the car is associated, the fee is 5
+    } else {
+      return 10; // Default fee for non-associated cars
+    }
   }
 
   public int totalFees() {
     return fees;
   }
-
+  
+  public Garage associate(Car car) {
+    members.add(car);
+    return this;
+  }
 }
