@@ -2,6 +2,7 @@ import Tipos
 import Tema
 import Playlist
 import FileSystem
+import Reproductor
 
 -- Pruebas para nuevoT
 pruebaNuevoT :: Bool
@@ -83,9 +84,58 @@ pruebaFiltrarF = resultado == esperado
     esperado = [tema3, tema1]
 
 
+
+-- Pruebas para playR
+pruebaPlayR :: Bool
+pruebaPlayR = resultado == esperado
+  where
+    etiqueta = "Etiqueta1"
+    tema1 = agregarT etiqueta (nuevoT "Tema1" "Datos1")
+    tema2 = nuevoT "Tema2" "Datos2"
+    tema3 = nuevoT "Tema3" "Datos3"
+    fs = agregarF tema1 (agregarF tema2 (agregarF tema3 nuevoF))
+    reproductor = nuevoR fs
+    resultado = actualR (playR reproductor etiqueta)
+    esperado = tema1
+
+-- Pruebas para avanzarR
+pruebaAvanzarR :: Bool
+pruebaAvanzarR = resultado == esperado
+  where
+    etiqueta = "Etiqueta1"
+    tema1 = agregarT etiqueta (nuevoT "Tema1" "Datos1")
+    tema2 = agregarT etiqueta (nuevoT "Tema2" "Datos2")
+    fs = agregarF tema1 (agregarF tema2 nuevoF)
+    reproductor = nuevoR fs
+    resultado = actualR (avanzarR (playR reproductor etiqueta))
+    esperado = tema1
+
+-- Pruebas para retrocederR
+pruebaRetrocederR :: Bool
+pruebaRetrocederR = resultado == esperado
+  where
+    tema1 = nuevoT "Tema1" "Datos1"
+    tema2 = nuevoT "Tema2" "Datos2"
+    fs = agregarF tema1 (agregarF tema2 nuevoF)
+    reproductor = RP fs (Play 1 [tema1, tema2])
+    resultado = actualR (retrocederR reproductor)
+    esperado = tema1
+
+-- Pruebas para reiniciarR
+pruebaReiniciarR :: Bool
+pruebaReiniciarR = resultado == esperado
+  where
+    tema1 = nuevoT "Tema1" "Datos1"
+    tema2 = nuevoT "Tema2" "Datos2"
+    fs = agregarF tema1 (agregarF tema2 nuevoF)
+    reproductor = RP fs (Play 1 [tema1, tema2])
+    resultado = actualR (reiniciarR reproductor)
+    esperado = tema1
+
 -- Lista de todas las pruebas
 pruebasTema :: [Bool]
-pruebasTema = [pruebaNuevoT, pruebaAgregarT, pruebaAplicaT, pruebasDatsoT, pruebaSkipP, pruebaBackP, pruebaResetP, pruebaAgregarF, pruebaFiltrarF]
+pruebasTema = [pruebaNuevoT, pruebaAgregarT, pruebaAplicaT, pruebasDatsoT, pruebaSkipP, pruebaBackP, pruebaResetP, 
+              pruebaAgregarF, pruebaFiltrarF, pruebaPlayR, pruebaAvanzarR, pruebaRetrocederR, pruebaReiniciarR]
 
 -- Función para ejecutar todas las pruebas y mostrar resultados
 main :: IO ()
