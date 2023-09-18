@@ -1,0 +1,11 @@
+El objetivo es ejercitar polimorfismo implementando un Stack.
+
+Hay que hacer pasar todos los tests del ejercicio y la implementación del
+Stack no debe tener if.
+
+No se pueden modificar los tests.
+
+Ayudas:
+1) Primero hagan pasar todos los tests usando if y después apliquen la
+técnica para sacar que veremos en clase.
+2) Un stack es como un Stick de Hanoi

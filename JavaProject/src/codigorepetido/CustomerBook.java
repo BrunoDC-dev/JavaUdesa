@@ -44,14 +44,12 @@ public class CustomerBook {
         return suspended.size();
     }
     public void removeCustomerNamed( String aName ) {
-      if (active.removeIf( (each) -> aName.equals( each ) )) {
+      if (active.remove(aName)) {
         return;
       }
-  
-      if (suspended.removeIf( (each) -> aName.equals( each ) )) {
+      if (suspended.remove(aName)) {
         return;
       }
-  
       throw new RuntimeException( CustomerNotFound );
     }
 
