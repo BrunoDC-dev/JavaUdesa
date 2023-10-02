@@ -81,8 +81,10 @@ public class CustomerBookTest {
     run.run();
     assertTrue( System.currentTimeMillis() - millisecondsBeforeRunning < timeToMeassure );
   }
-    private void assertThrowsLike( Executable executable, String message ) {
-    assertEquals( message,assertThrows( Exception.class, executable ).getMessage() );}
+  private void assertThrowsLike( Executable executable, String message ) {
+    
+    assertEquals( message,assertThrows( Exception.class, executable ).getMessage() );
+  }
 }
 //private void exceptionMethod(CustomerBook customerBook, Runnable action, String exceptionMessage) {
 //  assertThrows(RuntimeException.class, () -> {action.run(); throw new RuntimeException(exceptionMessage);});

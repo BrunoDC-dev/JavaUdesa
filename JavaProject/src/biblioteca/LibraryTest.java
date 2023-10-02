@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import java.util.List;
-
 public class LibraryTest {
   @Test public void testNewLibraryHasNoAuthors() {
     assertTrue( new Library().searchAvailableByAuthor( "Anonimous" ).isEmpty() );
