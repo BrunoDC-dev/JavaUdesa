@@ -116,3 +116,8 @@ Problema condiciones dentro del modelo
 Solucion se separa el codigo y se le da nombre
 -   se lo reutiliza polimorficamanete en dos o mas abstracciones
 Resultado nueva jerarquia polimorfica y segano y  ordeno conocimiento
+
+TDD:
+Escribo el test mas simple que aporte conocimiento al modelo
+hago pasar el test con la solucion mas trivial posible
+cada tanto hacer un refactor del modelo
