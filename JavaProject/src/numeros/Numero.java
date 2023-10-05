@@ -37,77 +37,21 @@ public abstract class Numero {
 
         return new Fraccion( numerator, denominator );
     }
-
-    public Numero() {}
-
-
-    public Numero substractedBy( Numero aMultiplier ){
-
-
-
-        if (type == Entero && aMultiplier.type == Fraccion) {
-            return new Fraccion(value*aMultiplier.denominator-aMultiplier.numerator, aMultiplier.denominator);
-        }
-        if (type == Fraccion && aMultiplier.type == Entero){
-            return new Fraccion(numerator - aMultiplier.value*denominator, denominator);
-        }
-        if (type == Entero && aMultiplier.type == Entero) {
-            return new Entero( value - aMultiplier.value );
-        }
-
-        if (type == Fraccion && aMultiplier.type == Fraccion) {
-            int newNumerator = ( numerator * aMultiplier.denominator ) - ( denominator * aMultiplier.numerator );
-            int newDenominator = denominator * aMultiplier.denominator;
-            return with( newNumerator, newDenominator );
-        }
-
-        throw new UnsupportedOperationException( "Tipo de número no soportado" );
-    }
+    public abstract Numero substractedBy( Numero aMultiplier );
+    public abstract Numero restarEntero(Entero anEntero);
+    public abstract Numero restarFraccion(Fraccion aFraccion);
 
     public abstract Numero multipliedBy( Numero aMultiplier );
     public abstract Numero multiplicarAEntero( Entero anEnteroMultiplier );
     public abstract Numero multiplicarAFraccion( Fraccion aFraccionMultiplier );
-    
 
-    public Numero addedTo(Numero anAdder) {
-        if (type == Entero && anAdder.type == Entero) {
-            return new Entero(value + anAdder.value);
-        }
-    
-        if (type == Fraccion && anAdder.type == Fraccion) {
-            int newNumerator = (numerator * anAdder.denominator) + (denominator * anAdder.numerator);
-            int newDenominator = denominator * anAdder.denominator;
-            return with(newNumerator, newDenominator);
-        }
-    
-        if (type == Entero) {
-            return new Fraccion(value * anAdder.denominator + anAdder.numerator, anAdder.denominator);
-        }
-    
-        if (type == Fraccion) {
-            return new Fraccion(numerator + anAdder.value* denominator, denominator);
-        }
-    
-        throw new UnsupportedOperationException("Tipo de número no soportado");
-    }
-    
+    public abstract Numero addedTo (Numero aNumeroAdder);
+    public abstract Numero sumarEntero (Entero anEnteroAdder);
+    public abstract Numero sumarFraccion (Fraccion aFraccionAdder);
 
-    public Numero dividedBy(Numero aDivisor) {
-        if (aDivisor.isZero()) {
-            throw new RuntimeException(CanNotDivideByZero);
-        }
-        if (type == Entero && aDivisor.type == Entero) {
-            return new Entero(value / aDivisor.value);
-        } else if (type == Fraccion && aDivisor.type == Fraccion) {
-            return new Fraccion(numerator * aDivisor.denominator, denominator * aDivisor.numerator);
-        } else if (type == Entero) {
-            return new Fraccion(value * aDivisor.denominator, aDivisor.numerator);
-        } else if (type == Fraccion) {
-            return new Fraccion(numerator, denominator * aDivisor.value);
-        }
-    
-        throw new UnsupportedOperationException("Tipo de número no soportado");
-    }
+    public abstract Numero dividedBy(Numero aDivisor) ;
+    public abstract Numero dividirFraccion(Fraccion aFraccionDivisor);
+    public abstract Numero dividirEntero(Entero anEnteroDivisor);
     
 
     public Numero greatestCommonDivisorWith( int anEntero ) {

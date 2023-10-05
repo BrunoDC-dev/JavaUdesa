@@ -13,7 +13,29 @@ public class Fraccion extends Numero {
     numerator = aNumerator;
     denominator = aDenominator;
   }
-  
+  public Numero addedTo( Numero aNumero ) {
+    return aNumero.sumarFraccion( this );
+  }
+  public Numero sumarEntero( Entero anEntero ) {
+    return new Fraccion( numerator + anEntero.value * denominator, denominator ) ;
+  }
+  public Numero sumarFraccion ( Fraccion aFraccion ) {
+    return new Fraccion( numerator * aFraccion.denominator + denominator * aFraccion.numerator,
+        denominator * aFraccion.denominator );
+  }
+  public Numero substractedBy ( Numero aNumero ) {
+    return aNumero.restarFraccion( this );
+  }
+  public Numero restarEntero ( Entero anEntero ) {
+      return new Fraccion( anEntero.value*denominator -numerator, denominator);
+  }
+  public Numero restarFraccion (Fraccion aFraccion) {
+    int newNumerator = ( denominator * aFraccion.numerator )- ( numerator * aFraccion.denominator ) ;
+    int newDenominator = denominator * aFraccion.denominator;
+    return with( newNumerator, newDenominator );
+  }
+
+
   public Numero multipliedBy( Numero aMultiplier ) {
     return aMultiplier.multiplicarAFraccion( this );
   }    
@@ -23,9 +45,21 @@ public class Fraccion extends Numero {
   }
 
   public Numero multiplicarAFraccion( Fraccion aFraccionMultiplier ) {
-    return Numero.with( numerator * aFraccionMultiplier.numerator,
+    return new Fraccion( numerator * aFraccionMultiplier.numerator,
         denominator * aFraccionMultiplier.denominator );
   }
   
 
+  public Numero dividedBy( Numero aDivisor ) {
+    if (aDivisor.isZero()) {
+      throw new RuntimeException(CanNotDivideByZero);
+  }
+    return aDivisor.dividirFraccion( this );
+  }
+  public Numero dividirEntero( Entero anEntero ) {
+    return new Fraccion( denominator,numerator * anEntero.value );
+  }
+  public Numero dividirFraccion( Fraccion aFraccion ) {
+    return new Fraccion( denominator* aFraccion.numerator, numerator * aFraccion.denominator );
+  }
 }

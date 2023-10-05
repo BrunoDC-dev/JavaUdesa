@@ -44,6 +44,29 @@
         - muchos experimentos
             
 - Laura Alonso Alemany :
+    - Evaluar, Optimizar y decidir (Sobresimplificacion)
+    - Machine Learning: Optimizacion de una funcion
+    - Problemas de resultado abierto es ceudno no tenenmos un resultado fijo y necesitmaos de contexto
+    - Cosas que le faltan a un modelo:
+        - Contexto 
+    - N-gram overlab
+        - un input que devuelve un output y se lo compara conel resultado de  una encuesta que dice cual seria el output optimo (Ground truth o Gold standard)   
+        - Blue
+        - nGramas comunes /ngramas candidata
+        - inadecuado:
+            - Infintios gorund truth
+            - Polisenia y sinonimia
+            - negacion
+        - Ventajas:
+            - Intuitivo
+            - Interpretable
+            - Correlacion con humanos
+    - Embeddings
+        - Una red neuronal que virifca si dos palabras son similares por mas que no sean la misma palabra
+    - Metricas 
+        - Comparar es limitar
+        - Jucios humanos hacen que sea muy dificil evaluar
+    - Contranarrativas 
 - Diego Fernandez Slezak:
 - José Ignacio Orlando:
 - Leandro Bugnon:
