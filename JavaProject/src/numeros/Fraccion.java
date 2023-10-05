@@ -62,4 +62,35 @@ public class Fraccion extends Numero {
   public Numero dividirFraccion( Fraccion aFraccion ) {
     return new Fraccion( denominator* aFraccion.numerator, numerator * aFraccion.denominator );
   }
+  public Numero negated () {
+    return new Fraccion( -numerator, denominator );
+  }
+  public boolean isNegative() {
+    return numerator < 0;
+  }
+  public boolean isOne() {
+    return numerator == denominator;
+  }
+  public boolean isZero() {
+    return false;
+  }
+  public String toString() {
+    return "" + numerator + "/" + denominator;
+  }
+  public boolean equals (Object anObject){
+    if (Numero.class.isInstance(anObject)) {
+      Numero aNumero = (Numero) anObject;
+      return aNumero.equalsToFraccion(this);
+    }
+    return false;
+  }
+  public boolean equalsToEntero (Entero anEntero) {
+    return numerator / denominator == anEntero.value;
+  }
+  public boolean equalsToFraccion (Fraccion aFraccion) {
+    return numerator / denominator == aFraccion.numerator/ aFraccion.denominator;
+  }
+  public int  hashCode() {
+    return Double.hashCode( (double) numerator / (double) denominator );
+  }
 }

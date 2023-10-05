@@ -1,5 +1,7 @@
 package numeros;
 
+import org.junit.validator.PublicClassValidator;
+
 public class Entero extends Numero {
 
   public Entero( int aValue ) {
@@ -55,5 +57,36 @@ public class Entero extends Numero {
   }
   public Numero dividirFraccion ( Fraccion aFraccion ) {
     return new Fraccion( aFraccion.numerator, aFraccion.denominator*value );
+  }
+  public Numero negated () {
+    return new Entero( -value );
+  }
+  public boolean isNegative (){
+    return value < 0;
+  }
+  public boolean isOne () {
+    return value == 1;
+  }
+  public boolean isZero () {
+    return value == 0;
+  }
+  public String toString() {
+    return "" + value;
+  }
+  public boolean equals(Object anObject){
+    if (Numero.class.isInstance(anObject)) {
+      Numero aNumero = (Numero) anObject;
+      return aNumero.equalsToEntero(this);
+    }
+    return false;
+  }
+  public boolean equalsToEntero (Entero anEntero) {
+    return value == anEntero.value;
+  }
+  public boolean equalsToFraccion (Fraccion aFraccion) {
+    return value == aFraccion.numerator / aFraccion.denominator;
+  }
+  public int  hashCode() {
+    return Integer.hashCode(value);
   }
 }

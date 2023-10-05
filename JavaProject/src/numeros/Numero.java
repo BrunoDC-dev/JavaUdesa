@@ -40,7 +40,7 @@ public abstract class Numero {
     public abstract Numero substractedBy( Numero aMultiplier );
     public abstract Numero restarEntero(Entero anEntero);
     public abstract Numero restarFraccion(Fraccion aFraccion);
-
+    
     public abstract Numero multipliedBy( Numero aMultiplier );
     public abstract Numero multiplicarAEntero( Entero anEnteroMultiplier );
     public abstract Numero multiplicarAFraccion( Fraccion aFraccionMultiplier );
@@ -62,86 +62,15 @@ public abstract class Numero {
         throw new UnsupportedOperationException( "Tipo de número no soportado" );
     }
 
-    public Numero negated() {
-        if (type == Entero) {
-            return new Entero( value * -1 );
-        }
-        if (type == Fraccion) {
-            return new Fraccion( numerator * -1, denominator );
-        }
-
-        throw new UnsupportedOperationException( "Tipo de número no soportado" );
-    }
-
-    public boolean isNegative() {
-        if (type == Entero) {
-            return value < 0;
-        }
-        if (type == Fraccion) {
-            return denominator < 0;
-        }
-        throw new UnsupportedOperationException( "Tipo de número no soportado" );
-    }
-
-    public boolean isOne() {
-        if (type == Entero) {
-            return value == 1;
-        }
-        if (type == Fraccion) {
-            return false;
-        }
-        throw new UnsupportedOperationException( "Tipo de número no soportado" );
-    }
-
-    public boolean isZero() {
-        if (type == Entero) {
-            return value == 0;
-        }
-        if (type == Fraccion) {
-            return false;
-        }
-        throw new UnsupportedOperationException( "Tipo de número no soportado" );
-    }
-
-    public String toString() {
-        if (type == Entero) {
-            return "" + value;
-        }
-        if (type == Fraccion) {
-            return "" + numerator + "/" + denominator;
-        }
-        throw new UnsupportedOperationException( "Tipo de número no soportado" );
-    }
-
-    public boolean equals( Object anObject ) {
-        if (Numero.class.isInstance( anObject )) {
-            Numero other = Numero.class.cast( anObject );
-            if (type == other.type) {
-                if (type == Entero) {
-                    return value == other.value();
-                } else if (type == Fraccion) {
-                    return numerator * other.denominator() == denominator * other.numerator();
-                }
-            }else{
-                if (type == Entero && other.type ==Fraccion) {
-                    return value == other.numerator/other.denominator;
-                }else if (type == Fraccion && other.type == Entero){
-                    return numerator/denominator == other.value;
-                }
-            }
-        }
-        return false;
-    }
-
-    public int hashCode() {
-        if (type == Entero) {
-            return Integer.hashCode( value );
-        }
-        if (type == Fraccion) {
-            return Double.hashCode( (double) numerator / (double) denominator );
-        }
-        return 0;
-    }
+    public abstract Numero negated();
+    public abstract boolean isNegative();
+    public abstract boolean isOne() ;
+    public abstract boolean isZero() ;
+    public abstract String toString() ;
+    public abstract boolean equals( Object anObject );
+    public abstract boolean equalsToEntero( Entero anEntero );
+    public abstract boolean equalsToFraccion( Fraccion aFraccion );
+    public abstract int hashCode();
 
     // accessors
     public int denominator() {  return denominator; }
