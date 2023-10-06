@@ -24,7 +24,6 @@ public class NumeroTest {
 	private Numero fiveHalfs;
 	private Numero sixFifths;
 	private Numero negativeOneHalf;
-
 	@BeforeEach public void setUp() {
 		zero = Numero.with( 0 );
 		one = Numero.with( 1 );

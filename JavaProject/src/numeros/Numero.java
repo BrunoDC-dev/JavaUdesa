@@ -1,7 +1,7 @@
 package numeros;
 
 public abstract class Numero {
-    static public String CanNotDivideByZero = "No se puede dividir por cero!!!!!!";
+    public static String CanNotDivideByZero = "No se puede dividir por cero!!!!!!";
 
     public static String Entero = "Entero";
     public static String Fraccion = "Fraccion";

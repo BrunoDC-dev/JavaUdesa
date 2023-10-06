@@ -1,6 +1,5 @@
 package numeros;
 
-import org.junit.validator.PublicClassValidator;
 
 public class Entero extends Numero {
 
