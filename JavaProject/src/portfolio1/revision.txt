@@ -1,0 +1,7 @@
+En la realidad se depositan y retiran números positivos de dinero.
+Para ser coherentes hay que modelar eso con números positivos.
+
+Queda como tarea introducir una transacción (pero no una jerarquía aun)
+Considerando cómo se distingue una transacción de débito con una de 
+crédito y que esa gestión no quede expuesta.
+(no se pueden cambiar los tests)

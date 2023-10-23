@@ -1,0 +1,2 @@
+Los detalles internos de como son las Transacciones estan diseminados por todo el trabajo
+Aplicar encapsulamiento y delegacion para que Account ignore todo lo posible de Transaction.

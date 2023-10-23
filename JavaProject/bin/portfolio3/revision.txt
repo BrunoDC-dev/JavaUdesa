@@ -1,0 +1,2 @@
+Hay if consistentes que sugieren abstracciones por descubrir.
+Implementarlas

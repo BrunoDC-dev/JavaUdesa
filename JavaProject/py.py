@@ -7,29 +7,16 @@ keyboard = KeyboardController()
 driver = webdriver.Chrome()
 
 # Open a new tab and navigate to the URL
-driver.execute_script("window.open('https://humanbenchmark.com/tests/typing', '_blank')")
+driver.execute_script("window.open('https://www.mercadopago.com.ar/activities/1?period=other&date_from=2023-06-28&date_to=2023-07-11', '_blank')")
 driver.switch_to.window(driver.window_handles[-1])
 driver.maximize_window()
-
-# Wait for the page to load
-time.sleep(10)
-
-# Get the source code of the page
+input('Apreta enter para continuar: ')
 html = driver.page_source
-
-# Find the paragraph
-first = html.find('<span class="incomplete current">')
-last = html.rfind('<span class="incomplete">')
-
-# Parse the paragraph
-paragraph = html[first:last+26].replace('<span class="incomplete current">', '').replace('<span class="incomplete">', '').replace('</span>', '')
-
-print(paragraph)
-print('\n')
-
-keyboard.type(paragraph)
-
-# Close the tab and the web driver
-a = input('Apreta enter para terminar: ')
+elements = html.find('<span class="andes-money-amount__fraction" aria-hidden="true">')
+print ('Iniciando...')
+for index in range(len(elements)):
+    print(elements[index])
+#print (elements)
+time.sleep(5)
 driver.close()
 driver.quit()

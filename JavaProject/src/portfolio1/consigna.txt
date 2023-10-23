@@ -1,0 +1,9 @@
+Prototipo de cuenta bancaria. 
+Una cuenta bancaria posee la habilidad de recibir y retirar dinero, 
+y ofrecer un balance y un reporte.
+
+1ra etapa: definir tests de balance, deposito y retiro.
+estructura: arreglo de enteros.
+(Desarrollo funcional BusinesDriven)
+1 que funcione
+2 reporte

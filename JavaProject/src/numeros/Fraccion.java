@@ -68,12 +68,6 @@ public class Fraccion extends Numero {
   public boolean isNegative() {
     return numerator < 0;
   }
-  public boolean isOne() {
-    return numerator == denominator;
-  }
-  public boolean isZero() {
-    return false;
-  }
   public String toString() {
     return "" + numerator + "/" + denominator;
   }

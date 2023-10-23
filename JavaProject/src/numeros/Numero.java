@@ -64,8 +64,12 @@ public abstract class Numero {
 
     public abstract Numero negated();
     public abstract boolean isNegative();
-    public abstract boolean isOne() ;
-    public abstract boolean isZero() ;
+    public boolean isZero() {
+        return false;
+      }
+      public boolean isOne() {
+        return false;
+      }
     public abstract String toString() ;
     public abstract boolean equals( Object anObject );
     public abstract boolean equalsToEntero( Entero anEntero );

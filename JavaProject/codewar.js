@@ -1,5 +1,24 @@
 const puppeteer = require('puppeteer');
+function calculatePi(numPoints) {
+  let numPointsInCircle = 0;
 
+  for (let i = 0; i < numPoints; i++) {
+    let x = Math.random();
+    let y = Math.random();
+
+    if (x * x + y * y <= 1) {
+      numPointsInCircle++;
+    }
+  }
+
+  return 4 * numPointsInCircle / numPoints;
+}
+
+let numPoints = 100000000000000000000000000000000000000000;
+let pi = calculatePi(numPoints);
+
+console.log(`The value of pi is approximately ${pi}`);
+/*
 (async () => {
   // Launch a non-headless Chrome browser
   const browser = await puppeteer.launch({ headless: false });
@@ -29,3 +48,4 @@ const puppeteer = require('puppeteer');
   await page.waitForTimeout(10000); // Adjust the time as needed
   await browser.close();
 })();
+*/
