@@ -1,0 +1,4 @@
+Necesitamos definir Transferencias, en donde movemos dinero de un origen a un destino.
+El modelo resultante debe ser compatible con lo desarrollado hasta ahora, es decir, 
+permitir un balance y un reporte. 
+Pero ad1emás debe poder llegarse desde una pata de la transferencia a la otra.
