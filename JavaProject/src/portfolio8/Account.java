@@ -1,4 +1,4 @@
-package portfolio6;
+package portfolio8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,18 +30,6 @@ public class Account extends Accountable {
      return this;
   }
 
-  public String report( String prefix ) {
-    List<String> report = new ArrayList();
-    
-    report.add( prefix + "Cuenta:" );
-    transactions.forEach( (transaction) -> {
-      report.add( prefix + "  " + transaction.reportDetail() );
-    });
-
-    report.add( prefix + "Balance: " + balance() );
-    
-    return String.join("\n", report);
-  }
   
   public boolean contains( Accountable anAccountable ) {
     return equals( anAccountable );
@@ -51,7 +39,13 @@ public class Account extends Accountable {
     return Arrays.asList( this );
   }
 
-  public List<Transaction> transactions() {
-    return transactions;
+  public void accept( PortfolioVisitor visitor ) {
+    visitor.visitAccount( this );
+  }
+
+  public void visitTransactionsOn( PortfolioVisitor summaryTreeReport ) {
+    transactions.forEach( (transaction) -> {
+      transaction.accept( summaryTreeReport );
+    });
   }
 }

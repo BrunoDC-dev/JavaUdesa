@@ -1,0 +1,3 @@
+Necesitamos definir Transferencias, en donde movemos dinero de un origen a un destino.
+El modelo resultante debe ser compatible con lo desarrollado hasta ahora, es decir, permitir un balance y un reporte. 
+Pero además debe poder llegarse desde una pata de la transfPortfolioTest.javaerencia a la otra.
